@@ -14,7 +14,6 @@ export default function Home() {
         onClose={() => dispatch({ type: "closeDialog" })}
         open={dialog}
       />
-      <PayloadPicker />
     </Box>
   );
 }
