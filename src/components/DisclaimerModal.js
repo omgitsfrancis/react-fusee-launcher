@@ -1,15 +1,17 @@
 import React from "react";
+import {
+  Box,
+  Button,
+  Dialog,
+  IconButton,
+  Typography
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
-import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import WarningIcon from "@material-ui/icons/Warning";
-import Typography from "@material-ui/core/Typography";
-import { Box } from "@material-ui/core";
 
 const styles = (theme) => ({
   root: {
@@ -23,8 +25,8 @@ const styles = (theme) => ({
     color: theme.palette.grey[500],
   },
   title: {
-    marginLeft: theme.spacing(1)
-  }
+    marginLeft: theme.spacing(1),
+  },
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -33,7 +35,9 @@ const DialogTitle = withStyles(styles)((props) => {
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Box display="flex" alignItems="center">
         <WarningIcon fontSize="large" />
-        <Typography className={classes.title} variant="h6">{children}</Typography>
+        <Typography className={classes.title} variant="h6">
+          {children}
+        </Typography>
       </Box>
       {onClose ? (
         <IconButton

@@ -2,18 +2,17 @@ import React, { useCallback, useContext } from "react";
 import { Select, MenuItem, Box, Typography } from "@material-ui/core";
 import { useDropzone } from "react-dropzone";
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
-import theme from "../theme";
-import { LauncherContext } from "../LauncherContext";
+import { AppContext } from "../../pages/_app";
 
 function MyDropzone() {
-  const { dispatch } = useContext(LauncherContext);
+  const { dispatch } = useContext(AppContext);
   const onDrop = useCallback((acceptedFiles) => {
     dispatch({type: "setFileUpload", payload: acceptedFiles})
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <Box {...getRootProps()} display="flex" flexDirection="column" alignItems="center" width="320px" style={{ outline: "2px dashed black" }}>
+    <Box {...getRootProps()} display="flex" flexDirection="column" alignItems="center" style={{ outline: "2px dashed black" }}>
       <input {...getInputProps()} />
       <SystemUpdateAltIcon fontSize="large" />
 
@@ -29,11 +28,11 @@ function MyDropzone() {
 }
 
 export default function PayloadPicker() {
-  const { state, dispatch } = useContext(LauncherContext);
+  const { state, dispatch } = useContext(AppContext);
   const { payloadSelect } = state;
  
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" alignItems="center" whiteSpace="20px">
       <Select value={payloadSelect} onChange={(e) => dispatch({type: "setPayloadSelect", payload: e.target.value})}>
         <MenuItem value="none">Select Payload</MenuItem>
         <MenuItem value="sxos">SX OS</MenuItem>
