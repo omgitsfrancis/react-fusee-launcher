@@ -1,4 +1,3 @@
-
 import { createContext, useReducer } from "react";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "../src/theme";
@@ -7,7 +6,7 @@ import Head from "next/head";
 const initialState = {
   dialog: true,
   payloadSelect: "none",
-  fileUpload: [],
+  fileUpload: null,
 };
 
 export const AppReducer = (state, action) => {
@@ -36,6 +35,11 @@ export default function MyApp({ Component, pageProps }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Component {...pageProps} />
+        <style jsx global>{`
+          body {
+            margin: 0;
+          }
+        `}</style>
       </ThemeProvider>
     </AppContext.Provider>
   );

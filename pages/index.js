@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "./_app";
 import CustomizedDialogs from "../src/components/DisclaimerModal";
-import PayloadPicker from "../src/components/PayloadPicker";
 import { Box } from "@material-ui/core";
 
 export default function Home() {
